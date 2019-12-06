@@ -20,7 +20,7 @@
         "guzzlehttp/guzzle": "^6.0",
         "jms/serializer": "^1.2",
         "psr/log": "^1.0",
-        "nesbot/carbon": "^1.21",
+        "nesbot/carbon": "^2.0.0",
         "symfony/yaml": "^3.1"
     },
     "require-dev": {
