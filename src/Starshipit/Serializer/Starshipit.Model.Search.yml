@@ -1,0 +1,12 @@
+Starshipit\Model\Search:
+  properties:
+    success:
+      type: boolean
+    total_pages:
+      type: int
+    errors:
+      type: array<Starshipit\Model\Error>
+    orders:
+      type: array<Starshipit\Model\OrderDetails>
+      serialized_name: orders
+
