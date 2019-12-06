@@ -85,6 +85,13 @@ class OrderDetails
     protected $metadatas;
 
     /**
+     * @var string
+     */
+    protected $tracking_number;
+
+    protected $country;
+
+    /**
      * @return string
      */
     public function getOrderId()
@@ -180,7 +187,7 @@ class OrderDetails
     }
 
     /**
-     * @param string $CarrierName
+     * @param string $carrier_name
      * @return $this
      */
     public function setCarrierName($carrier_name)
@@ -196,6 +203,44 @@ class OrderDetails
     public function getCarrierName()
     {
         return $this->carrier_name;
+    }
+
+    /**
+     * @param string $tracking_number
+     * @return $this
+     */
+    public function setTrackingNumber($tracking_number)
+    {
+        $this->tracking_number = $tracking_number;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingNumber()
+    {
+        return $this->tracking_number;
+    }
+
+    /**
+     * @param string $country
+     * @return $this
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     /**

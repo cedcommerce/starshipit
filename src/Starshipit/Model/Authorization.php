@@ -21,7 +21,7 @@ class Authorization implements AuthorizationInterface
     /**
      * @var string
      */
-    protected $subcriptionKey;
+    protected $subscriptionKey;
     /**
      * @var string
      */
@@ -31,13 +31,13 @@ class Authorization implements AuthorizationInterface
      * Authorization constructor.
      * @param string      $endpoint
      * @param string|null $apiKey
-     * @param string|null $subcriptionKey
+     * @param string|null $subscriptionKey
      */
-    public function __construct($endpoint, $apiKey = null, $subcriptionKey = null, $user_agent = null)
+    public function __construct($endpoint, $apiKey = null, $subscriptionKey = null, $user_agent = null)
     {
         $this->setEndpoint($endpoint);
         $this->setApiKey($apiKey);
-        $this->setSubscriptionKey($subcriptionKey);
+        $this->setSubscriptionKey($subscriptionKey);
         $this->setUserAgent($user_agent);
     }
 
@@ -84,16 +84,16 @@ class Authorization implements AuthorizationInterface
      */
     public function getSubscriptionKey()
     {
-        return $this->subcriptionKey;
+        return $this->subscriptionKey;
     }
 
     /**
-     * @param string $subcriptionKey
+     * @param string $subscriptionKey
      * @return $this
      */
-    public function setSubscriptionKey($subcriptionKey)
+    public function setSubscriptionKey($subscriptionKey)
     {
-        $this->subcriptionKey = $subcriptionKey;
+        $this->subscriptionKey = $subscriptionKey;
 
         return $this;
     }

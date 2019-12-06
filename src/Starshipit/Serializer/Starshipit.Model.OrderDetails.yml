@@ -17,6 +17,10 @@ Starshipit\Model\OrderDetails:
       type: int
     shipping_method:
       type: string
+    tracking_number:
+      type: string
+    country:
+      type: string
     signature_required:
       type: int
     currency:

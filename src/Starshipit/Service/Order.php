@@ -3,6 +3,7 @@
 
     use Starshipit\Model\Authorization;
     use Starshipit\Model\Order as OrderModel;
+    use Starshipit\Model\Search as SearchModel;
     use Starshipit\Model\OrderDetails;
     use Starshipit\Traits;
     use GuzzleHttp\ClientInterface;
@@ -141,13 +142,11 @@
                 );
             }
 
-            // echo '<pre>';
-            // print_r($result->getBody()->getContents());
-            // return $this->getSerializer()->deserialize(
-            //     (string) $result->getBody(),
-            //     OrderModel::class,
-            //     'json'
-            // );
+            return $this->getSerializer()->deserialize(
+                 (string) $result->getBody(),
+                 SearchModel::class,
+                 'json'
+             );
         }
     }
 

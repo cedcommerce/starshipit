@@ -1,5 +1,5 @@
 {
-    "name": "james-azzopardi/starshipit",
+    "name": "cedcommerce/starshipit",
     "description": "Integrate easily with the starshipit.com API",
     "keywords": ["starshipit", "shipping", "shopping"],
     "type": "library",
@@ -8,6 +8,10 @@
         {
             "name": "James Azzopardi",
             "email": "james.azzopardi@yahoo.com.au"
+        },
+        {
+            "name": "Milind Singh",
+            "email": "milind7@live.com"
         }
     ],
     "minimum-stability": "stable",

@@ -9,7 +9,7 @@ The recommended way to install is via [Composer](http://getcomposer.org).
 
 
 ```bash
-composer require james-azzopardi/starshipit dev-master
+composer require cedcommerce/starshipit dev-master
 ```
 
 Don't forget to include Composer's auto-loader if you haven't already:
@@ -17,6 +17,28 @@ Don't forget to include Composer's auto-loader if you haven't already:
 ```php
 require 'vendor/autoload.php';
 ```
+
+## Usage
+```php
+        /** @var \Starshipit\Model\Authorization $auth */
+        $auth = new \Starshipit\Model\Authorization(
+                "https://api.starshipit.com/api/",
+                "starshipit-api-key", // to be changed
+                'subscription-Key', // to be changed
+                "your-user-agent" // to be changed
+        );
+
+        /** @var \Starshipit\Service\Order $order */
+        $order = \Starshipit\Api::order($auth);
+        /** @var \Starshipit\Model|Search $result */
+        $result = $order->search("xyz");
+        /** @var \Starshipit\Model\Order $item */
+        if ($result->getSuccess()) {
+            echo "Success";
+        }
+```
+
+
 
 ## API
 [API Documentation](https://developers.starshipit.com/docs/services/58e5bb041164fe12c0b94ff1/operations/create-order)
@@ -46,3 +68,4 @@ require 'vendor/autoload.php';
 
 [Guzzle](https://github.com/guzzle/guzzle)
 
+[James-Azzopardi/starshipit](https://github.com/james-azzopardi/starshipit)
