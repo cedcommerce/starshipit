@@ -59,7 +59,7 @@ class DateTimeHandler implements SubscribingHandlerInterface
      */
     public function serializeDateTimeToJson(JsonSerializationVisitor $visitor, $data, array $type)
     {
-        return $data->format($type['params'][0]);
+        return $data instanceof \DateTimeInterface ? $data->format($type['params'][0]) : $data;
     }
 }
 

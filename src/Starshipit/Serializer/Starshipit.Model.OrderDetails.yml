@@ -6,7 +6,7 @@ Starshipit\Model\OrderDetails:
     order_date:
       type: DateTime<'Y-m-d\TH:i:s.u\Z'>
     order_number:
-      type: int
+      type: string
     reference:
       type: string
     carrier:
@@ -40,4 +40,7 @@ Starshipit\Model\OrderDetails:
     metadatas:
       type: array<Starshipit\Model\Metadata>
       serialized_name: metadatas
+    return_order:
+      type: boolean
+      serialized_name: return_order
 

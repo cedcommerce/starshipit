@@ -45,6 +45,7 @@
         public function post(OrderModel $order)
         {
             try {
+                $body = $this->getSerializer()->serialize($order, 'json');
                 $result = $this->getClient()->post(
                     'orders',
                     [
@@ -54,7 +55,7 @@
                             'Ocp-Apim-Subscription-Key' => $this->getAuthorization()->getSubscriptionKey(),
                             'User-Agent'                => $this->getAuthorization()->getUserAgent(),
                         ],
-                        'body' => $this->getSerializer()->serialize($order, 'json'),
+                        'body' => $body,
                     ]
                 );
             } catch (BadResponseException $exception) {
@@ -68,11 +69,26 @@
                 );
             }
 
-            return $this->getSerializer()->deserialize(
+            $data = json_decode($body, true);
+            $typeId = $order->getTypeId();
+            $type = $order->getType();
+
+            /** @var OrderModel $order */
+            $order = $this->getSerializer()->deserialize(
                 (string) $result->getBody(),
                 OrderModel::class,
                 'json'
             );
+
+            // Maintaining old data incase of failure
+            $current = $order->getData();
+            if (isset($data['order']) && !isset($current['order_id'])) {
+                $order->setData($data['order']);
+            }
+            $order->setType($type);
+            $order->setTypeId($typeId);
+
+            return $order;
         }
 
         /**

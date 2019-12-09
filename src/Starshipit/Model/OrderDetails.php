@@ -89,7 +89,15 @@ class OrderDetails
      */
     protected $tracking_number;
 
+    /**
+     * @var string
+     */
     protected $country;
+
+    /**
+     * @var bool
+     */
+    protected $return_order;
 
     /**
      * @return string
@@ -100,10 +108,10 @@ class OrderDetails
     }
 
     /**
-      * @param string OrderId
+      * @param string $orderId
       * @return $this
       */
-    public function setOrderId($order_id)
+    public function setOrderId($orderId)
     {
         $this->order_id = $order_id;
 
@@ -111,12 +119,12 @@ class OrderDetails
     }
 
     /**
-     * @param string $OrderDate
+     * @param string $date
      * @return $this
      */
-    public function setOrderDate($order_date)
+    public function setOrderDate($date)
     {
-        $this->order_date = $order_date;
+        $this->order_date = $date;
 
         return $this;
     }
@@ -130,12 +138,12 @@ class OrderDetails
     }
 
     /**
-     * @param string $OrderNumber
+     * @param string $orderNumber
      * @return $this
      */
-    public function setOrderNumber($order_number)
+    public function setOrderNumber($orderNumber)
     {
-        $this->order_number = $order_number;
+        $this->order_number = $orderNumber;
 
         return $this;
     }
@@ -282,22 +290,41 @@ class OrderDetails
     }
 
     /**
-     * @param string $SignatureRequired
+     * @param boolean $required
      * @return $this
      */
-    public function setSignatureRequired($signature_required)
+    public function setSignatureRequired($required)
     {
-        $this->signature_required = $signature_required;
+        $this->signature_required = $required;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return boolean
      */
     public function getSignatureRequired()
     {
         return $this->signature_required;
+    }
+
+    /**
+     * @param boolean $flag
+     * @return $this
+     */
+    public function setReturnOrder($flag)
+    {
+        $this->return_order = $flag;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getReturnOrder()
+    {
+        return $this->return_order;
     }
 
     /**
@@ -343,7 +370,7 @@ class OrderDetails
     }
 
     /**
-     * @return string
+     * @return Address
      */
     public function getDestination()
     {
@@ -351,7 +378,7 @@ class OrderDetails
     }
 
     /**
-     * @param string $Destination
+     * @param Address $destination
      * @return $this
      */
     public function setDestination($destination)
@@ -362,7 +389,7 @@ class OrderDetails
     }
 
     /**
-     * @return string
+     * @return Item[]
      */
     public function getItems()
     {
@@ -370,7 +397,7 @@ class OrderDetails
     }
 
     /**
-     * @param string $Items
+     * @param Item[] $items
      * @return $this
      */
     public function setItems(array $items)

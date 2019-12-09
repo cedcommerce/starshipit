@@ -64,6 +64,11 @@ class Address
      */
     protected $delivery_instructions;
 
+    /**
+     * @var string
+     */
+    protected $city;
+
 
     /**
      * @return string
@@ -213,6 +218,25 @@ class Address
     public function setState($state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
 
         return $this;
     }

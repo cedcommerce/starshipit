@@ -14,14 +14,31 @@ class Order
      * @var string
      */
     protected $success;
+
     /**
      * @var string
      */
     protected $errors;
+
+    /**
+     * @var OrderDetails
+     */
+    protected $order;
+
     /**
      * @var string
      */
-    protected $order;
+    protected $data;
+
+    /**
+     * @var int
+     */
+    protected $typeId;
+
+    /**
+     * @var string
+     */
+    protected $type;
 
     /**
      * @param string $success
@@ -62,7 +79,7 @@ class Order
     }
 
     /**
-     * @param string $order
+     * @param OrderDetails $order
      * @return $this
      */
     public function setOrder($order)
@@ -73,11 +90,41 @@ class Order
     }
 
     /**
-     * @return string
+     * @return OrderDetails
      */
     public function getOrder()
     {
         return $this->order;
+    }
+
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setTypeId($typeId)
+    {
+        $this->typeId = $typeId;
+    }
+
+    public function getTypeId()
+    {
+        return $this->typeId;
     }
 }
 
