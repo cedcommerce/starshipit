@@ -16,9 +16,9 @@ class Order
     protected $success;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $errors;
+    protected $errors = [];
 
     /**
      * @var OrderDetails
@@ -71,7 +71,7 @@ class Order
     }
 
     /**
-     * @return string
+     * @return \Starshipit\Model\Error[]
      */
     public function getErrors()
     {

@@ -1,0 +1,18 @@
+Starshipit\Model\Label:
+  properties:
+    success:
+      type: boolean
+    errors:
+      type: array<Starshipit\Model\Error>
+    order_id:
+      type: int
+    order_number:
+      type: string
+    carrier_name:
+      type: string
+    tracking_numbers:
+      type: array<string>
+    labels:
+      type: array<string>
+    label_types:
+      type: array<string>

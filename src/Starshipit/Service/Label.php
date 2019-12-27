@@ -66,7 +66,14 @@ class Label
             );
         }
 
-        return $result->getBody();
+        /** @var LabelModel $label */
+        $label = $this->getSerializer()->deserialize(
+            (string) $result->getBody(),
+            LabelModel::class,
+            'json'
+        );
+
+        return $label;
     }
 }
 

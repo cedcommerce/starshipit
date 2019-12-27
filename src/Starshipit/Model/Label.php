@@ -14,8 +14,41 @@ class Label
      * @var string
      */
     protected $success;
+
+    /**
+     * @var array
+     */
     protected $errors;
-    protected $order;
+
+    /**
+     * @var int
+     */
+    protected $order_id;
+
+    /**
+     * @var string
+     */
+    protected $carrier_name;
+
+    /**
+     * @var int
+     */
+    protected $order_number;
+
+    /**
+     * @var array
+     */
+    protected $tracking_numbers;
+
+    /**
+     * @var array
+     */
+    protected $labels;
+
+    /**
+     * @var array
+     */
+    protected $label_types;
 
     /**
      * @param string $success
@@ -48,7 +81,7 @@ class Label
     }
 
     /**
-     * @return string
+     * @return \Starshipit\Model\Error[]
      */
     public function getErrors()
     {
@@ -56,12 +89,31 @@ class Label
     }
 
     /**
-     * @param string $order
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->order_id;
+    }
+
+    /**
+     * @param string $orderId
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrderId($orderId)
     {
-        $this->order = $order;
+        $this->order_id = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setCarrierName($name)
+    {
+        $this->carrier_name = $name;
 
         return $this;
     }
@@ -69,9 +121,85 @@ class Label
     /**
      * @return string
      */
-    public function getOrder()
+    public function getCarrierName()
     {
-        return $this->order;
+        return $this->carrier_name;
+    }
+
+    /**
+     * @param string $orderNumber
+     * @return $this
+     */
+    public function setOrderNumber($orderNumber)
+    {
+        $this->order_number = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderNumber()
+    {
+        return $this->order_number;
+    }
+
+    /**
+     * @param array $numbers
+     * @return $this
+     */
+    public function setTrackingNumbers($numbers)
+    {
+        $this->tracking_numbers = $numbers;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTrackingNumbers()
+    {
+        return $this->tracking_numbers;
+    }
+
+    /**
+     * @param array $labels
+     * @return $this
+     */
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * @param array $types
+     * @return $this
+     */
+    public function setLabelTypes($types)
+    {
+        $this->label_types = $types;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLabelTypes()
+    {
+        return $this->label_types;
     }
 }
 
