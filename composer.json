@@ -37,7 +37,8 @@
         }
     },
     "conflict": {
-        "allure-framework/allure-phpunit": "*"
+        "allure-framework/allure-phpunit": "*",
+        "magento/magento2-functional-testing-framework": "*"
     }
 }
 
