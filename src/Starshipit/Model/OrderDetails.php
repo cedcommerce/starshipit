@@ -347,12 +347,13 @@ class OrderDetails
     }
 
     /**
-     * @param \Starshipit\Model\Contact $senderDetails
+     * @param string $SenderDetails
      * @return $this
      */
-    public function setSenderDetails($senderDetails)
+    public function setSenderDetails($sender_details)
     {
-        $this->sender_details = $senderDetails;
+        $this->sender_details = $sender_details;
+
         return $this;
     }
 
@@ -363,7 +364,6 @@ class OrderDetails
     {
         return $this->sender_details;
 
-        return $this->sender_details;
     }
 
     /**

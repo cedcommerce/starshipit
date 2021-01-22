@@ -11,6 +11,7 @@ use JMS\Serializer\SerializerInterface;
 use Starshipit\Service\Order as OrderService;
 use Starshipit\Service\Label as LabelService;
 use Starshipit\Service\Tracking as TrackingService;
+use Starshipit\Service\Address as AddressService;
 
 /**
  * Class Api
@@ -75,6 +76,21 @@ class Api
         $starshipitSerializer = $serializer ?: SerializerFactory::getSerializer();
 
         return new TrackingService($starshipitClient, $authorization, $starshipitSerializer);
+    }
+
+    /**
+     * Attempt to create an address endpoint
+     * @return object
+     */
+    public static function address(Authorization $authorization, Client $client = null, SerializerInterface $serializer = null)
+    {
+        AnnotationReader::addGlobalIgnoredName('alias');
+        AnnotationRegistry::registerLoader('class_exists');
+
+        $starshipitClient = $client ?: new Client(['base_uri' => $authorization->getEndpoint()]);
+        $starshipitSerializer = $serializer ?: SerializerFactory::getSerializer();
+
+        return new AddressService($starshipitClient, $authorization, $starshipitSerializer);
     }
 
 }

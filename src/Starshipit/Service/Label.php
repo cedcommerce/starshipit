@@ -41,6 +41,7 @@ class Label
      */
     public function print_label(OrderModel $order)
     {
+
         try {
             $body = "{ 'order_id' : '".$order->getOrder()->getOrderId()."', 'order_number' : '" . $order->getOrder()->getOrderNumber() . "' }";
             $result = $this->getClient()->post(
