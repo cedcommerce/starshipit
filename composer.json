@@ -3,6 +3,7 @@
     "description": "Integrate easily with the starshipit.com API",
     "keywords": ["starshipit", "shipping", "shopping"],
     "type": "library",
+    "version": "0.0.3",
     "license": "MIT",
     "authors": [
         {
